@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class AutoVinil {
 
-    protected WebDriver driver;
+    private WebDriver driver;
 
     @BeforeTest
     public final void setupTest() {
@@ -30,7 +30,7 @@ public class AutoVinil {
 
     @Test
     public final void validateHeaderHome() {
-        Assert.assertTrue(driver.findElement(By.cssSelector("div.block1 a[href='/'][class='active']")).
+        Assert.assertTrue(driver.findElement(By.cssSelector("div.menu a[href='/']")).
                 getText().contains("Главная"), ("Главная is matching"));
     }
 
@@ -63,7 +63,7 @@ public class AutoVinil {
     }
 
     @Test
-    public final void  validateHeaderArticles() {
+    public final void validateHeaderArticles() {
         driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/stati/']")).click();
         Assert.assertTrue(driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/stati/']")).
                 getText().contains("Статьи"), ("Статьи is matching"));
@@ -89,6 +89,4 @@ public class AutoVinil {
         Assert.assertTrue(driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/kontakti/']")).
                 getText().contains("Контакты"), ("Контакты is matching"));
     }
-
-
 }
