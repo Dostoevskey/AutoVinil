@@ -29,9 +29,52 @@ public class AutoVinil {
     }
 
     @Test
-    public final void validateHeaderButtons() {
-        Assert.assertTrue(driver.findElement(By.cssSelector("div.menu a[href='/'][class='active']")).
+    public final void validateHeaderHome() {
+        Assert.assertTrue(driver.findElement(By.cssSelector("div.block1 a[href='/'][class='active']")).
                 getText().contains("Главная"), ("Главная is matching"));
-        driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/uslugi/']")).click();
     }
+
+    @Test
+    public final void validateHeaderServices() {
+        driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/uslugi/']")).click();
+        Assert.assertTrue(driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/uslugi/'][class='active']")).
+                getText().contains("Услуги"), ("Услуги is matching"));
+    }
+
+    @Test
+    public final void validateHeaderItems() {
+
+    }
+
+    @Test
+    public final void validateHeaderPrices() {
+
+    }
+
+    @Test
+    public final void validateHeaderSales() {
+
+    }
+
+    @Test
+    public final void  validateHeaderArticles() {
+
+    }
+
+    @Test
+    public final void validateHeaderPortfolio() {
+
+    }
+
+    @Test
+    public final void validateHeaderAboutUs() {
+
+    }
+
+    @Test
+    public final void validateHeaderContacts() {
+
+    }
+
+
 }
