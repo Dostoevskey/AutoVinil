@@ -13,78 +13,68 @@ public class AutoVinil {
 
     public static WebDriver driver;
 
+
     @BeforeTest
-    public static void setupTest() {
+    public void setupTest() {
 
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get("http://autovinil76.ru");
     }
 
-    @Test
-    public static void validateHeaderHome() {
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.menu a[href='/']")).
-                getText(),"Главная");
-            }
-
-    @Test
-    public static void validateHeaderServices() {
-        driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/uslugi/']")).click();
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/uslugi/']")).
-                getText(),"Услуги");
+    public void headerValidator(String webelementLocator, String pageName) {
+        driver.findElement(By.cssSelector(webelementLocator)).click();
+        Assert.assertEquals(driver.findElement(By.cssSelector(webelementLocator)).
+                getText(), pageName);
     }
 
     @Test
-    public static void validateHeaderItems() {
-        driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/tovari/']")).click();
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/tovari/']")).
-                getText(),"Товары");
+    public void validateHeaderHome() {
+        headerValidator("div.menu a[href='/']", "Главная");
     }
 
     @Test
-    public static void validateHeaderPrices() {
-        driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/ceni/']")).click();
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/ceni/']")).
-                getText(),"Цены");
+    public void validateHeaderServices() {
+        headerValidator("div.block1 a[href='http://autovinil76.ru/uslugi/']", "Услуги");
     }
 
     @Test
-    public static void validateHeaderSales() {
-        driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/akcii/']")).click();
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/akcii/']")).
-                getText(),"Акции");
+    public void validateHeaderItems() {
+        headerValidator("div.block1 a[href='http://autovinil76.ru/tovari/']", "Товары");
     }
 
     @Test
-    public static void validateHeaderArticles() {
-        driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/stati/']")).click();
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/stati/']")).
-                getText(),"Статьи");
+    public void validateHeaderPrices() {
+        headerValidator("div.block1 a[href='http://autovinil76.ru/ceni/']", "Цены");
     }
 
     @Test
-    public static void validateHeaderPortfolio() {
-        driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/portfolio/']")).click();
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/portfolio/']")).
-                getText(),"Портфолио");
+    public void validateHeaderSales() {
+        headerValidator("div.block1 a[href='http://autovinil76.ru/akcii/']", "Акции");
     }
 
     @Test
-    public static void validateHeaderAboutUs() {
-        driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/o-nas/']")).click();
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/o-nas/']")).
-                getText(),"О нас");
+    public void validateHeaderArticles() {
+        headerValidator("div.block1 a[href='http://autovinil76.ru/stati/']", "Статьи");
     }
 
     @Test
-    public static void validateHeaderContacts() {
-        driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/kontakti/']")).click();
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.block1 a[href='http://autovinil76.ru/kontakti/']")).
-                getText(),"Контакты");
+    public void validateHeaderPortfolio() {
+        headerValidator("div.block1 a[href='http://autovinil76.ru/portfolio/']", "Портфолио");
+    }
+
+    @Test
+    public void validateHeaderAboutUs() {
+        headerValidator("div.block1 a[href='http://autovinil76.ru/o-nas/']", "О нас");
+    }
+
+    @Test
+    public void validateHeaderContacts() {
+        headerValidator("div.block1 a[href='http://autovinil76.ru/kontakti/']", "Контакты");
     }
 
     @AfterTest
-    public static void teardown() {
+    public void teardown() {
         if (driver != null) {
             driver.close();
         }
