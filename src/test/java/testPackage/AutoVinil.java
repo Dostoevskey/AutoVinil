@@ -23,19 +23,21 @@ public class AutoVinil {
     }
 
     public void headerValidator(String webelementLocator, String pageName) {
-        driver.findElement(By.cssSelector(webelementLocator)).click();
-        Assert.assertEquals(driver.findElement(By.cssSelector(webelementLocator)).
+        driver.findElement(By.linkText(webelementLocator)).click();
+        Assert.assertEquals(driver.findElement(By.linkText(webelementLocator)).
                 getText(), pageName);
     }
 
     @Test
     public void validateHeaderHome() {
-        headerValidator("div.menu a[href='/']", "Главная");
+        driver.findElement(By.cssSelector("div.menu a[href='/']"));
+        Assert.assertEquals(driver.findElement(By.linkText("Главная")).
+                getText(), "Главная");
     }
 
     @Test
     public void validateHeaderServices() {
-        headerValidator("div.block1 a[href='http://autovinil76.ru/uslugi/']", "Услуги");
+        headerValidator("Услуги", "Услуги");
     }
 
     @Test
