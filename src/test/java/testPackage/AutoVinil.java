@@ -42,37 +42,37 @@ public class AutoVinil {
 
     @Test
     public void validateHeaderItems() {
-        headerValidator("div.block1 a[href='http://autovinil76.ru/tovari/']", "Товары");
+        headerValidator("Товары", "Товары");
     }
 
     @Test
     public void validateHeaderPrices() {
-        headerValidator("div.block1 a[href='http://autovinil76.ru/ceni/']", "Цены");
+        headerValidator("Цены", "Цены");
     }
 
     @Test
     public void validateHeaderSales() {
-        headerValidator("div.block1 a[href='http://autovinil76.ru/akcii/']", "Акции");
+        headerValidator("Акции", "Акции");
     }
 
     @Test
     public void validateHeaderArticles() {
-        headerValidator("div.block1 a[href='http://autovinil76.ru/stati/']", "Статьи");
+        headerValidator("Статьи", "Статьи");
     }
 
     @Test
     public void validateHeaderPortfolio() {
-        headerValidator("div.block1 a[href='http://autovinil76.ru/portfolio/']", "Портфолио");
+        headerValidator("Портфолио", "Портфолио");
     }
 
     @Test
     public void validateHeaderAboutUs() {
-        headerValidator("div.block1 a[href='http://autovinil76.ru/o-nas/']", "О нас");
+        headerValidator("О нас", "О нас");
     }
 
     @Test
     public void validateHeaderContacts() {
-        headerValidator("div.block1 a[href='http://autovinil76.ru/kontakti/']", "Контакты");
+        headerValidator("Контакты", "Контакты");
     }
 
     @AfterTest
