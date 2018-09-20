@@ -85,7 +85,7 @@ for(
     @Test
     public void validateHeaderHome() {
         driver.findElement(By.cssSelector("div.menu a[href='/']"));
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.block3 span[.,'Наши услуги']")).getText(), "Главная");
+        Assert.assertEquals(driver.findElement(By.xpath("//span[text()='Наши услуги / ']")).getText(), "Наши услуги / Посмотреть все");
     }
 
     @Test
