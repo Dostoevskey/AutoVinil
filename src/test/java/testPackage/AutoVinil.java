@@ -3,11 +3,14 @@ package testPackage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class AutoVinil {
 
@@ -66,15 +69,15 @@ for(
 */
 
 
-//    public void listOfHeaders() {
-//        List<WebElement> elementList = driver.findElements(By.cssSelector("div.block1 li"));
-//
-//        for (WebElement currentListOfHeaders : elementList) {
-//            String strLinkText = currentListOfHeaders.getText();
-//
-//            System.out.println(strLinkText);
-//        }
-//    }
+    public void listOfHeaders() {
+        List<WebElement> elementList = driver.findElements(By.cssSelector("div.block1 li"));
+
+        for (WebElement currentListOfHeaders : elementList) {
+            String strLinkText = currentListOfHeaders.getText();
+
+            System.out.println(strLinkText);
+        }
+    }
 
 //    public void listOfHeaders(String textHeader) {
 //        List<WebElement> =
@@ -84,7 +87,7 @@ for(
 
     @Test
     public void validateHeaderHome() {
-        driver.findElement(By.cssSelector("div.menu a[href='/']"));
+        driver.findElement(By.cssSelector("div.menu a[href='/']")).click();
         Assert.assertEquals(driver.findElement(By.xpath("//span[text()='Наши услуги / ']")).getText(), "Наши услуги / Посмотреть все");
     }
 
