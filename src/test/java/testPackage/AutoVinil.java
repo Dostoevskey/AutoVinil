@@ -79,6 +79,11 @@ for(
         }
     }
 
+    @Test
+    public void printListOfHeaders() {
+        listOfHeaders();
+    }
+
 //    public void listOfHeaders(String textHeader) {
 //        List<WebElement> =
 //    }
