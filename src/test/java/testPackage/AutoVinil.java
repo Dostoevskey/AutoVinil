@@ -30,6 +30,7 @@ public class AutoVinil {
         Assert.assertEquals(driver.findElement(locator).getText(), pageName);
     }
 
+
 /*
     https://stackoverflow.com/questions/17746565/verify-list-elements-by-selenium-webdriver#17746738
 
@@ -68,6 +69,12 @@ for(
     }
 */
 
+/*    http://pgu-uat-fed.test.gosuslugi.ru/eds
+    WebElement uploadElement = driver.findElement(By.xpath("//*[@id='html5_1co1b846uja2dk614l91v8f1dca4']"));
+
+// enter the file path onto the file-selection input field
+uploadElement.sendKeys("src/main/resources/720.png");
+*/
 
     public void listOfHeaders() {
         List<WebElement> elementList = driver.findElements(By.cssSelector("div.block1 li"));
