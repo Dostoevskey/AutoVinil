@@ -1,4 +1,4 @@
-package testPackage;
+package test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import static java.lang.Thread.sleep;
 
 public class GosUslugiFileUpload {
 
@@ -17,20 +19,27 @@ public class GosUslugiFileUpload {
 
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.get("http://pgu-uat-fed.test.gosuslugi.ru/eds");
+        driver.get("http://pgu-uat-fed.test.gosuslugi.ru");
     }
 
     @Test
-    public void chooseRegion() {
+    public void chooseRegion() throws InterruptedException {
         //driver.findElement(By.xpath("//div[text()='Выбрать вручную']")).isDisplayed();
-        driver.findElement(By.xpath("*//em[@class='wrapper w50']//span[@class='icon']")).isDisplayed();
-        driver.findElement(By.xpath("*//em[@class='wrapper w50']//span[@class='icon']")).click();
+        //driver.findElement(By.xpath("//em[@class='wrapper w50']//span[@class='icon']")).isDisplayed();
+        sleep(3000);
+        driver.findElement(By.xpath("//div[text()='Выбрать вручную']")).click();
+        //driver.findElement(By.xpath("//*[@class='wrapper w50']")).click();
 //        driver.findElement(By.xpath("*//em[@class='wrapper w50']")).isDisplayed();
 //        driver.findElement(By.xpath("*//em[@class='wrapper w50']")).click();
 //        driver.findElement(By.xpath("//label[text()='Название населенного пункта']")).isDisplayed();
 //        driver.findElement(By.xpath("//label[text()='Название населенного пункта']")).click();
-        driver.findElement(By.xpath("//label[@ng-if]")).isDisplayed();
-        driver.findElement(By.xpath("//label[@ng-if]")).click();
+        sleep(3000);
+        driver.findElement(By.xpath("*//input[@type='search']")).sendKeys("Москва");
+
+        //driver.switchTo().frame("*//div[@class='fields-cover']");
+
+//        driver.findElement(By.xpath("//label[@ng-if]")).isDisplayed();
+//        driver.findElement(By.xpath("//label[@ng-if]")).click();
 //        driver.findElement(By.xpath("//div[@class='select-el']")).isDisplayed();
 //        driver.findElement(By.xpath("//div[@class='select-el']")).click();
 

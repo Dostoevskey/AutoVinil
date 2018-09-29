@@ -1,4 +1,4 @@
-package testPackage;
+package test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class AutoVinil {
+public class AutoVinilListOfElements {
 
     public static WebDriver driver;
 
