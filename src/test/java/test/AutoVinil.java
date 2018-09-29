@@ -21,11 +21,6 @@ public class AutoVinil {
         driver.get("http://autovinil76.ru");
     }
 
-    public void headerValidator(String linkedText, By locator, String pageName) {
-        driver.findElement(By.linkText(linkedText)).click();
-        Assert.assertEquals(driver.findElement(locator).getText(), pageName);
-    }
-
     @Test
     public void validateHeaderHome() {
         driver.findElement(By.cssSelector("div.menu a[href='/']")).click();
@@ -71,6 +66,11 @@ public class AutoVinil {
     @Test
     public void validateHeaderContacts() {
         headerValidator("Контакты", By.cssSelector("h1"), "Контакты");
+    }
+
+    public void headerValidator(String linkedText, By locator, String pageName) {
+        driver.findElement(By.linkText(linkedText)).click();
+        Assert.assertEquals(driver.findElement(locator).getText(), pageName);
     }
 
     @AfterTest
